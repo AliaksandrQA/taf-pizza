@@ -19,7 +19,13 @@ public class Page {
     protected void waitForElementVisibility(By locator) {
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    protected boolean elementIsPresented(By locator) {
-        return driver.findElements(locator).size() > 0;
+
+    protected boolean elementsIsPresented(By locator) {
+        return driver.findElements(locator).isEmpty();
     }
+
+    protected boolean elementIsPresented(By locator) {
+        return driver.findElement(locator).isDisplayed();
+    }
+
 }
