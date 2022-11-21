@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class PizzaOrderingTest extends TestConfiguration {
+public class MealOrderingTest extends TestConfiguration {
     PizzaHomePage pizzaHomePage;
 
     @Test
