@@ -9,7 +9,7 @@ public class PizzaHomePage extends Page {
     private final By pizzaSection = By.xpath("//li[@class='horizontal-menu__list-item'][1]/a");
     private final By drinkSection = By.xpath("//span[text()='Напитки']");
     private final By addDrinkToBasket = By.xpath("//div[text()='Чай Клюква с имбирем']");
-    private final By diameterValue = By.xpath("//div[text()='4 Сезона']/../div[@class='modifications']/div[@class='modifications__content']/div[1]");
+    private final By diameterPizzaValue = By.xpath("//div[text()='4 Сезона']/../div[@class='modifications']/div[@class='modifications__content']/div[1]");
     private final By enormousPizzaSize = By.xpath("//div[text()='4 Сезона']/../div[@class='modifications']/div[@class='modifications__content']/div[1]/div/div/div/select/option[2]");
     private final By addPizzaToBasket = By.xpath("//div[text()='4 Сезона']/../div[@class='product-card__modification-summary']/div[2]");
     private final By basket = By.xpath("//div[@data-test='cart-button']");
@@ -32,7 +32,7 @@ public class PizzaHomePage extends Page {
 
     public PizzaHomePage addPizzaToBasket() {
         driver.findElement(pizzaSection).click();
-        driver.findElement(diameterValue).click();
+        driver.findElement(diameterPizzaValue).click();
         driver.findElement(enormousPizzaSize).click();
         driver.findElement(addPizzaToBasket).click();
         return new PizzaHomePage(driver);
