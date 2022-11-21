@@ -11,8 +11,18 @@ public class PizzaOrderingTest extends TestConfiguration {
                 .closeAdvertisementPopUp()
                 .addPizzaToBasket();
 
-        Assertions.assertTrue(pizzaHomePage.isBasketIconPresent());
+        Assertions.assertTrue(pizzaHomePage.isProductAddedToBasket());
 
+    }
+
+    @Test
+    public void addDrinkToBasket() {
+        pizzaHomePage = new PizzaHomePage(driver);
+        pizzaHomePage.openHomePage()
+                .closeAdvertisementPopUp()
+                .addDrinkToBasket();
+
+        Assertions.assertTrue(pizzaHomePage.isProductAddedToBasket());
     }
 
     @Test
@@ -20,10 +30,22 @@ public class PizzaOrderingTest extends TestConfiguration {
         pizzaHomePage = new PizzaHomePage(driver);
         String expected = pizzaHomePage.openHomePage()
                 .closeAdvertisementPopUp()
-                .submitOrder()
+                .submitPizzaOrder()
                 .getOrderTitle();
 
-        Assertions.assertEquals(expected,"4 Сезона","Необходимая пицца не добавлена");
+        Assertions.assertEquals(expected, "4 Сезона", "Необходимая пицца не добавлена");
+
+
+    }
+    @Test
+    public void checkDrinkOrder() {
+        pizzaHomePage = new PizzaHomePage(driver);
+        String expected = pizzaHomePage.openHomePage()
+                .closeAdvertisementPopUp()
+                .submitDrinkOrder()
+                .getOrderTitle();
+
+        Assertions.assertEquals(expected, "Чай Клюква с имбирем", "Необходимый напиток не добавлен");
 
 
     }
